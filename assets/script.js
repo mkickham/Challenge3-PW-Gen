@@ -26,6 +26,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+// This function prompts the user upon hitting the generate button to specify how long they want the password length to be
 function choices(){
   var length = prompt("How long do you want your password to be?");
   length = parseInt(length);
@@ -33,16 +34,18 @@ function choices(){
     alert("Password is not sufficient length")
     return;
   }
-  if (length > 12){
+  if (length > 128){
     alert("Password is too long")
     return;
   }
 
+  // these are variables that will later prompt the user
   var SpecChar = confirm("Would you like a special character?")
   var NumChar = confirm("Would you like a number?")
   var UpperCase = confirm("Would you like an uppercase letter?")
   var LowerCase = confirm("Would you like a lower case letter?")
 
+  // these group the options to a single variable called choices
   var choices = {
     length: length,
     SpecChar: SpecChar,
@@ -54,6 +57,7 @@ function choices(){
   return choices;
 }
 
+//  this creates a new function that uses if and for statements to combine (through concat) the various different options for password possibilities
 function generatePassword(){
   var options = choices()
 
@@ -87,6 +91,7 @@ function generatePassword(){
 
 }
 
+// This function gives a random password using the possible index of special characters, numbers, and upper/lower case letters based on the criteria specified at the top
 function getRandom(possiblePass){
   var possibleIndex = Math.floor(Math.random() * possiblePass.length);
   return possibleIndex;
