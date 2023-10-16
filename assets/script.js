@@ -56,39 +56,38 @@ function choices(){
 
 function generatePassword(){
   var options = choices()
+
   var newPassword = []
   var possiblePass = []
   if (options.SpecChar) {
     possiblePass = possiblePass.concat(SpecChar);
-    possiblePass.push(shuffle(SpecChar));
+   
   }
   
   if (options.NumChar){
     possiblePass = possiblePass.concat(NumChar);
-    possiblePass.push(shuffle(NumChar));
+
   }
   
   if (options.UpperCase) {
     possiblePass = possiblePass.concat(UpperCase);
-    possiblePass.push(shuffle(UpperCase));
   }
   
   if (options.LowerCase) {
     possiblePass = possiblePass.concat(LowerCase);
-    possiblePass.push(shuffle(LowerCase));
   }
 
-  for(var i = 0; i < choices.length; i++){
-    var readyArray = shuffle(possiblePass);
-    newPassword.push(readyArray);
+  for(var i = 0; i < options.length; i++){
+    var generate = getRandom(possiblePass);
+
+    newPassword.push(possiblePass[generate]);
   }
 
-  console.log(newPassword)
   return newPassword.join("")
 
 }
 
 function getRandom(possiblePass){
-  var possiblePass = Math.floor(Math.ramdom() * possiblePass.length);
-  return possiblePass.charAt(randomIndex);
+  var possibleIndex = Math.floor(Math.random() * possiblePass.length);
+  return possibleIndex;
 }
