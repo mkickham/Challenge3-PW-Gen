@@ -5,4 +5,6 @@ This project is for a random password generator. We were given starter code for 
 
 ## GitHub Link and Screenshot
 Website Link: https://mkickham.github.io/Challenge3-PW-Gen/
+
+
 ScreenShot: https://i.gyazo.com/57219dbe4ccbe1e460b2dd4e48bd3bb7.png
